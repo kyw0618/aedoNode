@@ -13,12 +13,4 @@ router.get('/my', isAuth, obitController.getMyObituary);
 router.get('/image', isAuth, obitController.getImageData);
 router.get('/:id', isAuth, obitController.getOneObituary);
 
-router.post('/notAuth',  upload, obitController.createObituary);
-router.put('/notAuth/:id', obitController.updateObit);
-router.delete('/notAuth/:id', obitController.removeObit);
-router.get('/notAuth', obitController.getByname);
-router.get('/notAuth/my', obitController.getMyObituary);
-router.get('/notAuth/image', obitController.getImageData);
-router.get('/notAuth/:id', obitController.getOneObituary);
-
 export default router;

@@ -1,17 +1,33 @@
 import * as orderRepository from '../data/order.js';
 
 export async function createOrder(req, res) {
-  const {place, item, price, receiver, sender, word, created} = req.body;
+  const {
+    place, 
+    item, 
+    price,       
+    receiver_name,
+    receiver_number,
+    sender_name,
+    sender_number, 
+    word, 
+    company,
+    created,
+    order_complete,
+  } = req.body;
   const userId = req.userId;
   try {
     var order = await orderRepository.saveOrder({
       place,
       item,
       price,
-      receiver,
-      sender,
+      receiver_name,
+      receiver_number,
+      sender_name,
+      sender_number,
       word,
+      company,
       created,
+      order_complete,
       userId
     })
   } catch (error) {

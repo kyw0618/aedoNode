@@ -2,13 +2,17 @@ import Mongoose from 'mongoose';
 import {useVirtualId} from '../db/db.js';
 
 const orders = new Mongoose.Schema( {
-  place: {type: Object, required: true},
+  place: {type: String, required: true},
   item: {type: String, required: true},
   price: {type: String, required: true},
-  receiver: {type: Object, required: true},
-  sender: {type: Object, required: true},
-  word: {type: Object, required: true},
+  receiver_name: {type: String, required: true},
+  receiver_number: {type: String},
+  sender_name: {type: String, required: true},
+  sender_number: {type: String},
+  word: {type: String, required: true},
+  company: {type: String},
   created: {type: String, required: true},
+  order_complete:{type: String},
   userId: {type: String, required: true}
 }, { 
   versionKey: false

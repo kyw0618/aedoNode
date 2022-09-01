@@ -8,8 +8,4 @@ router.get('/', isAuth, orderController.searchOrder);
 router.post('/', isAuth, orderController.createOrder);
 router.get('/my', isAuth, orderController.getMyOrder);
 
-router.get('/notAuth', orderController.searchOrder);
-router.post('/notAuth', orderController.createOrder);
-router.get('/notAuth/my', orderController.getMyOrder);
-
 export default router;
