@@ -2,17 +2,18 @@ import * as orderRepository from '../data/order.js';
 
 export async function createOrder(req, res) {
   const {
-    place, 
-    item, 
-    price,       
-    receiver_name,
-    receiver_number,
-    sender_name,
-    sender_number, 
-    word, 
-    company,
-    created,
-    order_complete,
+    place, // 장례식장
+    item,   // 화환명
+    price,  // 화환 가격     
+    receiver_name, // 받는 사람
+    receiver_number, // 받는 사람 전화번호
+    sender_name, // 보내는 사람
+    sender_number,  // 보내는 사람 전화번호
+    word, // 화환 리본 문구
+    company, // 회사명 또는 모임명
+    created, // 주문 생성일자
+    order_complete, // 주문 완료 코드
+    merchant_uid  // 주문 번호
   } = req.body;
   const userId = req.userId;
   try {
@@ -28,6 +29,7 @@ export async function createOrder(req, res) {
       company,
       created,
       order_complete,
+      merchant_uid,
       userId
     })
   } catch (error) {
