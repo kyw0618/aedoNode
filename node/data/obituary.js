@@ -3,15 +3,15 @@ import {useVirtualId} from '../db/db.js';
 
 const obituary = new Mongoose.Schema( {
   imgName: {type: String},
-  resident: {type: Object, required: true},
-  place: {type: String, required: true},
-  deceased: {type: Object, required: true},
-  eod: {type: String, required: true},
-  coffin: {type: String, required: true},
-  dofp: {type: String, required: true},
-  buried: {type: String, required: true},
-  word: {type: String, required: true},
-  created: {type: String, required: true},
+  resident: {type: Object, required: true}, // 대표 상주
+  place: {type: String, required: true},  // 장례식장
+  deceased: {type: Object, required: true}, // 고인 정보
+  eod: {type: String, required: true}, // 임종
+  coffin: {type: String, required: true}, // 입관
+  dofp: {type: String, required: true}, // 발인
+  buried: {type: String, required: true}, // 장지
+  word: {type: String, required: true}, // 상주말씀
+  created: {type: String, required: true},  //부고 작성 일자
   userId: {type: String, required: true}
 }, { 
   versionKey: false
