@@ -7,5 +7,7 @@ const router = express.Router();
 router.get('/', isAuth, orderController.searchOrder);
 router.post('/', isAuth, orderController.createOrder);
 router.get('/my', isAuth, orderController.getMyOrder);
+router.put('/', isAuth, orderController.updateDocument);
+
 
 export default router;

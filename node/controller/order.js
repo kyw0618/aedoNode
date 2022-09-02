@@ -31,12 +31,55 @@ export async function createOrder(req, res) {
       order_complete,
       merchant_uid,
       userId
-    })
+    });
   } catch (error) {
     return res.status(400).json({"status" : "400"});
   }
   
   res.status(201).json({"status": "201", order});
+}
+
+export async function updateDocument(req, res, next) {
+  const id = req.query.id;
+  const {
+    place,
+    item,
+    price,
+    receiver_name,
+    receiver_number,
+    sender_name,
+    sender_number,
+    word,
+    company,
+    created,
+    order_complete,
+    merchant_uid,
+   } = req.body;
+
+  const obit = await documentRepository.findById(id);
+  if(!obit) {
+    return res.status(404).json({"status":"404"});
+  }
+  if(obit.userId !== req.userId && config.adminId !== req.userId) {
+    return res.status(403).json({"status": "403"});
+  }
+
+  const updatedObit = await documentRepository.update(
+    id, 
+    place,
+    item,
+    price,
+    receiver_name,
+    receiver_number,
+    sender_name,
+    sender_number,
+    word,
+    company,
+    created,
+    order_complete,
+    merchant_uid,
+    );  
+  res.status(200).json({"status": "200", updatedObit});
 }
 
 export async function getAllOrder(req, res) {
