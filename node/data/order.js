@@ -12,7 +12,7 @@ const orders = new Mongoose.Schema( {
   word: {type: String},
   company: {type: String},
   created: {type: String},
-  order_complete:{type: String},
+  order_complete:{type: Boolean},
   merchant_uid: {type: String},
   userId: {type: String}
 }, { 
