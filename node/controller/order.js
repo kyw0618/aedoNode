@@ -56,7 +56,7 @@ export async function updateDocument(req, res, next) {
     merchant_uid,
    } = req.body;
 
-  const obit = await documentRepository.findById(id);
+  const obit = await orderRepository.findById(id);
   if(!obit) {
     return res.status(404).json({"status":"404"});
   }
@@ -64,7 +64,7 @@ export async function updateDocument(req, res, next) {
     return res.status(403).json({"status": "403"});
   }
 
-  const updatedObit = await documentRepository.update(
+  const updatedObit = await orderRepository.update(
     id, 
     place,
     item,
@@ -105,7 +105,7 @@ export async function searchOrder(req, res) {
   const value = req.query.value;
   const result = await ( value
     ? orderRepository.findOrder(value)
-    : orderRepository.findAllOrder());
+    : orderRepository.getAllObituary());
 
   res.status(200).json({"status": "200", result});
 }

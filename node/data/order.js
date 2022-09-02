@@ -31,16 +31,20 @@ export async function saveOrder(order) {
   return new Orders(order).save().then((data) => data);
 }
 
+export async function findById(id) {
+  return Orders.findById(id);
+}
+
 export async function findAllOrder() {
   return Orders.find();
 }
 
 export async function findOrder(value) {
   return Orders.find({$or : 
-    [{"receiver.name": value},
-    {"receiver.phone": value},
-    {"sender.name": value},
-    {"sender.phone" : value}]}).sort({createdAt: -1});
+    [{"receiver_name": value},
+    {"receiver_phone": value},
+    {"sender_name": value},
+    {"sender_phone" : value}]}).sort({createdAt: -1});
 }
 
 export async function update( 
@@ -59,7 +63,7 @@ export async function update(
   merchant_uid,
   userId
   ) {
-  return DataSend.findByIdAndUpdate(
+  return Orders.findByIdAndUpdate(
     id, {
       place,
       item,
@@ -79,5 +83,9 @@ export async function update(
 }
 
 export async function remove(id) {
-  return DataSend.findByIdAndDelete(id);
+  return Orders.findByIdAndDelete(id);
+}
+
+export async function getAllObituary() {
+  return Orders.find().sort({ createdAt: -1});
 }
