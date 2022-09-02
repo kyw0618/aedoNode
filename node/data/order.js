@@ -43,3 +43,41 @@ export async function findOrder(value) {
     {"sender.phone" : value}]}).sort({createdAt: -1});
 }
 
+export async function update( 
+  id, 
+  place,
+  item,
+  price,
+  receiver_name,
+  receiver_number,
+  sender_name,
+  sender_number,
+  word,
+  company,
+  created,
+  order_complete,
+  merchant_uid,
+  userId
+  ) {
+  return DataSend.findByIdAndUpdate(
+    id, {
+      place,
+      item,
+      price,
+      receiver_name,
+      receiver_number,
+      sender_name,
+      sender_number,
+      word,
+      company,
+      created,
+      order_complete,
+      merchant_uid,
+      userId
+  }, 
+    {returnOriginal: false});
+}
+
+export async function remove(id) {
+  return DataSend.findByIdAndDelete(id);
+}
