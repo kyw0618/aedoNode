@@ -15,13 +15,13 @@ export async function createObituary(req, res) {
   };
   const {
     place,
-    place_number,     
+    placenumber,     
     eod,  
-    eod_time,
+    eodtime,
     coffin,
-    coffin_time,
+    coffintime,
     dofp,
-    dofp_time, 
+    dofptime, 
     buried, 
     word, 
     created
@@ -34,15 +34,15 @@ export async function createObituary(req, res) {
       resident,
       deceased,
       place,
-      place_number,
-      eod,
-      eod_time,
+      placenumber,     
+      eod,  
+      eodtime,
       coffin,
-      coffin_time,
+      coffintime,
       dofp,
-      dofp_time,
-      buried,
-      word,
+      dofptime, 
+      buried, 
+      word, 
       created,
       userId
     });
@@ -85,16 +85,16 @@ export async function updateObit(req, res, next) {
     age: req.body.deceasedAge
   };
   const {
-    place,       
-    place_number,
-    eod,
-    eod_time,
+    place,
+    placenumber,     
+    eod,  
+    eodtime,
     coffin,
-    coffin_time,
+    coffintime,
     dofp,
-    dofp_time, 
+    dofptime, 
     buried, 
-    word
+    word, 
   } = req.body;
 
   const updatedObit = await obitRepository.update(
@@ -102,15 +102,15 @@ export async function updateObit(req, res, next) {
     resident,
     deceased,
     place,
-    place_number,
-    eod,
-    eod_time,
+    placenumber,     
+    eod,  
+    eodtime,
     coffin,
-    coffin_time,
+    coffintime,
     dofp,
-    dofp_time,
-    buried,
-    word
+    dofptime, 
+    buried, 
+    word, 
   );
   res.status(200).json({"status": "200", updatedObit});
 }
