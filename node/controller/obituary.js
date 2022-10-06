@@ -13,7 +13,19 @@ export async function createObituary(req, res) {
     name: req.body.deceasedName,
     age: req.body.deceasedAge
   };
-  const {place, eod, coffin, dofp, buried, word, created} = req.body;
+  const {
+    place,
+    place_number,     
+    eod,  
+    eod_time,
+    coffin,
+    coffin_time,
+    dofp,
+    dofp_time, 
+    buried, 
+    word, 
+    created
+  } = req.body;
 
   const userId = req.userId;
   try {
@@ -21,10 +33,14 @@ export async function createObituary(req, res) {
       imgName,
       resident,
       place,
+      place_number,
       deceased,
       eod,
+      eod_time,
       coffin,
+      coffin_time,
       dofp,
+      dofp_time,
       buried,
       word,
       created,
@@ -62,22 +78,37 @@ export async function updateObit(req, res, next) {
   const resident = {
     relation: req.body.relation,
     name: req.body.residentName,
-    phone: req.body.residentphone
+    phone: req.body.residentphone,
   };
   const deceased = {
     name: req.body.deceasedName,
     age: req.body.deceasedAge
   };
-  const {place, eod, coffin, dofp, buried, word} = req.body;
+  const {
+    place,       
+    place_number,
+    eod,
+    eod_time,
+    coffin,
+    coffin_time,
+    dofp,
+    dofp_time, 
+    buried, 
+    word
+  } = req.body;
 
   const updatedObit = await obitRepository.update(
     id,
     resident,
     place,
+    place_number,
     deceased,
     eod,
+    eod_time,
     coffin,
+    coffin_time,
     dofp,
+    dofp_time,
     buried,
     word
   );
