@@ -32,9 +32,9 @@ export async function createObituary(req, res) {
     var obituary = await obitRepository.save({
       imgName,
       resident,
+      deceased,
       place,
       place_number,
-      deceased,
       eod,
       eod_time,
       coffin,
@@ -100,9 +100,9 @@ export async function updateObit(req, res, next) {
   const updatedObit = await obitRepository.update(
     id,
     resident,
+    deceased,
     place,
     place_number,
-    deceased,
     eod,
     eod_time,
     coffin,
