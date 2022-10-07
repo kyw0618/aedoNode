@@ -13,15 +13,23 @@ export async function createObituary(req, res) {
     name: req.body.deceasedName,
     age: req.body.deceasedAge
   };
+  const place = {
+    name: req.body.place_name,
+    number: req.body.place_number
+  };
+  const eod = {
+    date: req.body.eod_date,
+    time: req.body.eod_time
+  };
+  const coffin = {
+    date: req.body.coffin_date,
+    time: req.body.coffin_time
+  };
+  const dofp = {
+    date: req.body.dofp_date,
+    time: req.body.dofp_time
+  };
   const {
-    place,
-    placenumber,     
-    eod,  
-    eodtime,
-    coffin,
-    coffintime,
-    dofp,
-    dofptime, 
     buried, 
     word, 
     created
@@ -34,13 +42,9 @@ export async function createObituary(req, res) {
       resident,
       deceased,
       place,
-      placenumber,     
       eod,  
-      eodtime,
       coffin,
-      coffintime,
       dofp,
-      dofptime, 
       buried, 
       word, 
       created,
@@ -84,14 +88,23 @@ export async function updateObit(req, res, next) {
     name: req.body.deceasedName,
     age: req.body.deceasedAge
   };
+  const place = {
+    name: req.body.place_name,
+    number: req.body.place_number
+  };
+  const eod = {
+    date: req.body.eod_date,
+    time: req.body.eod_time
+  };
+  const coffin = {
+    date: req.body.coffin_date,
+    time: req.body.coffin_time
+  };
+  const dofp = {
+    date: req.body.dofp_date,
+    time: req.body.dofp_time
+  };
   const {
-    place,
-    placenumber,     
-    eod,  
-    eodtime,
-    coffin,
-    coffintime,
-    dofp,
     dofptime, 
     buried, 
     word, 
@@ -102,11 +115,8 @@ export async function updateObit(req, res, next) {
     resident,
     deceased,
     place,
-    placenumber,     
     eod,  
-    eodtime,
     coffin,
-    coffintime,
     dofp,
     dofptime, 
     buried, 
