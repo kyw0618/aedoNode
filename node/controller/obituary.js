@@ -105,7 +105,6 @@ export async function updateObit(req, res, next) {
     time: req.body.dofp_time
   };
   const {
-    dofptime, 
     buried, 
     word, 
   } = req.body;
@@ -118,7 +117,6 @@ export async function updateObit(req, res, next) {
     eod,  
     coffin,
     dofp,
-    dofptime, 
     buried, 
     word, 
   );
