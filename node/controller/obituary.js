@@ -61,7 +61,7 @@ export async function getImageData(req, res) {
   const imgName = req.query.imgname;
   let filepath;
   try {
-    filepath = (`/root/Server/app/uploads/${imgName}`);
+    filepath = (`/root/Server/aedo/aedoNode/node/uploads/${imgName}`);
   } catch {
     return res.status(404).json({"status": "404"});
   }
