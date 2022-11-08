@@ -190,7 +190,7 @@ function send_message(userPhone, authNumber) {
   },
   function (err, res, html) {
     if (err) console.log(err);
-    else { resultCode = 200; console.log(html); }
+    else { resultCode = 201; console.log(html); }
   }
   );
   return resultCode;
