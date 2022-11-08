@@ -26,10 +26,12 @@ const validateSignup = [
 
 router.post('/', validateSignup, authController.singup);
 router.put('/', validateCredential, authController.login);
+
 router.put('/auto', authController.autoLogin);
 router.get('/', isAuth, authController.getUserInfo);
 router.get('/terms', authController.getAuthTerms);
 router.get('/admin', isAuth, authController.adminGetUser);
 router.delete('/', isAuth, authController.logout);
+
 router.post('/sms', validateSms, authController.sendsms);
 export default router;
