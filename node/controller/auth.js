@@ -171,7 +171,7 @@ function send_message(userPhone, authNumber) {
     json: true,
     uri: url,
     headers: {
-      "Contenc-type": "application/json; charset=utf-8",
+      "Contenc-type": "application/json",
       "x-ncp-iam-access-key": accessKey,
       "x-ncp-apigw-timestamp": date,
       "x-ncp-apigw-signature-v2": signature,
