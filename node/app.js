@@ -2,6 +2,7 @@ import express from 'express'
 import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors'
+import { config } from './config.js';
 import { connectDB } from './db/db.js';
 import appRouter from './router/app.js';
 import userRouter from './router/auth.js';
